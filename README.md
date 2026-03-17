@@ -137,21 +137,13 @@ Open `http://localhost:3000`.
 
 ---
 
-## Preparing for GitHub
+## Status
 
-This folder is ready to be turned into a GitHub repo:
+This project is a **work in progress** and represents a **rough MVP** of the DarkGrid threat intelligence dashboard. Expect breaking changes as the backend, collectors, and UI are refined.
 
-- Root **`.gitignore`** ignores:
-  - Python caches and `backend/data/`
-  - `frontend/node_modules`, `.next`, and local env files
-  - Logs and OS cruft
-- **`.env.example`** documents required environment variables.
-- **`README.md`** explains architecture, setup, and data flow.
+Planned future stages include:
 
-To publish:
-
-1. Initialize git in this folder: `git init`.
-2. Add files: `git add .` (your real `.env` will be ignored).
-3. Commit: `git commit -m "Initial DarkGrid dashboard"`.
-4. Create a GitHub repo and push this directory as the root.
+- **Richer globe pings**: more granular buckets, refined sizing/animation, and better click‑through behavior.  
+- **Additional OSINT sources**: more IP / URL / domain reputation and malware feeds beyond AbuseIPDB and OpenPhish.  
+- **Deeper indicator intel**: expanded details for each indicator and country cluster.
 
