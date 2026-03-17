@@ -1,0 +1,31 @@
+services:
+  backend:
+    build: ./backend
+    container_name: DarkGrid-backend
+    environment:
+      - ABUSEIPDB_API_KEY
+      - DB_PATH=/app/data/threat_intel.db
+      - CORS_ORIGINS=*
+    volumes:
+      - backend_data:/app/data
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_THREAT_API_URL: http://localhost:8000
+    container_name: DarkGrid-frontend
+    environment:
+      - BACKEND_URL=http://backend:8000
+      - NEXT_PUBLIC_THREAT_API_URL=http://backend:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  backend_data:

@@ -1,0 +1,13 @@
+.next
+.git
+.env
+.env.local
+.env.*
+eslint.config.mjs
+node_modules
+npm-debug.log*
+build_logs*.txt
+build_output.txt
+build_error.txt
+errors.txt
+server_logs*.txt

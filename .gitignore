@@ -1,0 +1,17 @@
+backend/__pycache__/
+backend/.pytest_cache/
+backend/*.pyc
+backend/data/
+backend/.env*
+
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.env.local
+
+# root env / secrets
+.env
+
+*.log
+.DS_Store
+

@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ededed;
+  --bg-primary: #000000;
+  --bg-secondary: rgb(5, 5, 8);
+  --bg-tertiary: rgb(12, 12, 16);
+  --bg-panel: rgba(0, 0, 0, 0.85);
+  --border-primary: rgb(10, 12, 15);
+  --border-secondary: rgb(20, 24, 28);
+  --text-primary: rgb(243, 244, 246);
+  --text-secondary: rgb(34, 211, 238);
+  --text-muted: rgb(8, 145, 178);
+  --text-heading: rgb(236, 254, 255);
+  --hover-accent: rgba(8, 51, 68, 0.2);
+  --scrollbar-thumb: rgba(8, 145, 178, 0.3);
+  --scrollbar-thumb-hover: rgba(8, 145, 178, 0.5);
+}
+
+/* Light theme: only the map basemap changes — UI stays dark */
+[data-theme="light"] {
+  --background: #000000;
+  --foreground: #ededed;
+  --bg-primary: #000000;
+  --bg-secondary: rgb(5, 5, 8);
+  --bg-tertiary: rgb(12, 12, 16);
+  --bg-panel: rgba(0, 0, 0, 0.85);
+  --border-primary: rgb(10, 12, 15);
+  --border-secondary: rgb(20, 24, 28);
+  --text-primary: rgb(243, 244, 246);
+  --text-secondary: rgb(34, 211, 238);
+  --text-muted: rgb(8, 145, 178);
+  --text-heading: rgb(236, 254, 255);
+  --hover-accent: rgba(8, 51, 68, 0.2);
+  --scrollbar-thumb: rgba(8, 145, 178, 0.3);
+  --scrollbar-thumb-hover: rgba(8, 145, 178, 0.5);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Styled thin scrollbar for dark HUD UI */
+.styled-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.styled-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.styled-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+}
+
+.styled-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+.styled-scrollbar {
+  scrollbar-width: thin;
+}
+
+/* Map popup shared utilities */
+.map-popup {
+  background: rgba(10, 14, 26, 0.95);
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: #e0e6f0;
+  font-family: monospace;
+  font-size: 11px;
+  min-width: 220px;
+  max-width: 320px;
+}
+
+.map-popup-title {
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+.map-popup-row {
+  margin-bottom: 4px;
+}
+
+.map-popup-subtitle {
+  font-size: 9px;
+  margin-bottom: 6px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* MapLibre Popup Overrides */
+.maplibregl-popup-content {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.maplibregl-popup-tip {
+  display: none !important;
+}
+
+/* ── MATRIX HUD COLOR THEME ── */
+/* Remaps cyan accents → green within .hud-zone containers only */
+[data-hud="matrix"] .hud-zone {
+  --text-secondary: #4ade80;
+  --text-muted: #16a34a;
+  --text-heading: #bbf7d0;
+  --hover-accent: rgba(5, 46, 22, 0.2);
+  --scrollbar-thumb: rgba(22, 163, 74, 0.3);
+  --scrollbar-thumb-hover: rgba(22, 163, 74, 0.5);
+}
+
+/* --- Text color overrides --- */
+[data-hud="matrix"] .hud-zone .text-cyan-300 { color: #86efac !important; }
+[data-hud="matrix"] .hud-zone .text-cyan-400 { color: #4ade80 !important; }
+[data-hud="matrix"] .hud-zone .text-cyan-500 { color: #22c55e !important; }
+[data-hud="matrix"] .hud-zone .text-cyan-600 { color: #16a34a !important; }
+[data-hud="matrix"] .hud-zone .text-cyan-700 { color: #15803d !important; }
+[data-hud="matrix"] .hud-zone .text-cyan-500\/50 { color: rgba(34, 197, 94, 0.5) !important; }
+[data-hud="matrix"] .hud-zone .text-cyan-500\/70 { color: rgba(34, 197, 94, 0.7) !important; }
+[data-hud="matrix"] .hud-zone .text-cyan-500\/80 { color: rgba(34, 197, 94, 0.8) !important; }
+
+/* --- Background color overrides --- */
+[data-hud="matrix"] .hud-zone .bg-cyan-400 { background-color: #4ade80 !important; }
+[data-hud="matrix"] .hud-zone .bg-cyan-300 { background-color: #86efac !important; }
+[data-hud="matrix"] .hud-zone .bg-cyan-500 { background-color: #22c55e !important; }
+[data-hud="matrix"] .hud-zone .bg-cyan-500\/10 { background-color: rgba(34, 197, 94, 0.1) !important; }
+[data-hud="matrix"] .hud-zone .bg-cyan-500\/20 { background-color: rgba(34, 197, 94, 0.2) !important; }
+[data-hud="matrix"] .hud-zone .bg-cyan-500\/30 { background-color: rgba(34, 197, 94, 0.3) !important; }
+[data-hud="matrix"] .hud-zone .bg-cyan-900\/30 { background-color: rgba(20, 83, 45, 0.3) !important; }
+[data-hud="matrix"] .hud-zone .bg-cyan-900\/50 { background-color: rgba(20, 83, 45, 0.5) !important; }
+[data-hud="matrix"] .hud-zone .bg-cyan-900\/60 { background-color: rgba(20, 83, 45, 0.6) !important; }
+[data-hud="matrix"] .hud-zone .bg-cyan-950\/10 { background-color: rgba(5, 46, 22, 0.1) !important; }
+[data-hud="matrix"] .hud-zone .bg-cyan-950\/30 { background-color: rgba(5, 46, 22, 0.3) !important; }
+[data-hud="matrix"] .hud-zone .bg-cyan-950\/40 { background-color: rgba(5, 46, 22, 0.4) !important; }
+
+/* --- Border color overrides --- */
+[data-hud="matrix"] .hud-zone .border-cyan-400 { border-color: #4ade80 !important; }
+[data-hud="matrix"] .hud-zone .border-cyan-500 { border-color: #22c55e !important; }
+[data-hud="matrix"] .hud-zone .border-cyan-700 { border-color: #15803d !important; }
+[data-hud="matrix"] .hud-zone .border-cyan-800 { border-color: #166534 !important; }
+[data-hud="matrix"] .hud-zone .border-cyan-900 { border-color: #14532d !important; }
+[data-hud="matrix"] .hud-zone .border-cyan-500\/10 { border-color: rgba(34, 197, 94, 0.1) !important; }
+[data-hud="matrix"] .hud-zone .border-cyan-500\/20 { border-color: rgba(34, 197, 94, 0.2) !important; }
+[data-hud="matrix"] .hud-zone .border-cyan-500\/30 { border-color: rgba(34, 197, 94, 0.3) !important; }
+[data-hud="matrix"] .hud-zone .border-cyan-500\/40 { border-color: rgba(34, 197, 94, 0.4) !important; }
+[data-hud="matrix"] .hud-zone .border-cyan-500\/50 { border-color: rgba(34, 197, 94, 0.5) !important; }
+[data-hud="matrix"] .hud-zone .border-cyan-800\/40 { border-color: rgba(22, 101, 52, 0.4) !important; }
+[data-hud="matrix"] .hud-zone .border-cyan-800\/50 { border-color: rgba(22, 101, 52, 0.5) !important; }
+[data-hud="matrix"] .hud-zone .border-cyan-800\/60 { border-color: rgba(22, 101, 52, 0.6) !important; }
+[data-hud="matrix"] .hud-zone .border-cyan-900\/50 { border-color: rgba(20, 83, 45, 0.5) !important; }
+[data-hud="matrix"] .hud-zone .border-b-cyan-900 { border-bottom-color: #14532d !important; }
+[data-hud="matrix"] .hud-zone .border-l-cyan-500 { border-left-color: #22c55e !important; }
+
+/* --- Hover text --- */
+[data-hud="matrix"] .hud-zone .hover\:text-cyan-300:hover { color: #86efac !important; }
+[data-hud="matrix"] .hud-zone .hover\:text-cyan-400:hover { color: #4ade80 !important; }
+
+/* --- Hover background --- */
+[data-hud="matrix"] .hud-zone .hover\:bg-cyan-300:hover { background-color: #86efac !important; }
+[data-hud="matrix"] .hud-zone .hover\:bg-cyan-500\/20:hover { background-color: rgba(34, 197, 94, 0.2) !important; }
+[data-hud="matrix"] .hud-zone .hover\:bg-cyan-900\/50:hover { background-color: rgba(20, 83, 45, 0.5) !important; }
+[data-hud="matrix"] .hud-zone .hover\:bg-cyan-950\/30:hover { background-color: rgba(5, 46, 22, 0.3) !important; }
+
+/* --- Hover border --- */
+[data-hud="matrix"] .hud-zone .hover\:border-cyan-300:hover { border-color: #86efac !important; }
+[data-hud="matrix"] .hud-zone .hover\:border-cyan-500:hover { border-color: #22c55e !important; }
+[data-hud="matrix"] .hud-zone .hover\:border-cyan-500\/40:hover { border-color: rgba(34, 197, 94, 0.4) !important; }
+[data-hud="matrix"] .hud-zone .hover\:border-cyan-500\/50:hover { border-color: rgba(34, 197, 94, 0.5) !important; }
+[data-hud="matrix"] .hud-zone .hover\:border-cyan-600:hover { border-color: #16a34a !important; }
+[data-hud="matrix"] .hud-zone .hover\:border-cyan-800:hover { border-color: #166534 !important; }
+
+/* --- Accent (range inputs) --- */
+[data-hud="matrix"] .hud-zone .accent-cyan-500 { accent-color: #22c55e !important; }
+
+/* Focus mode: dim the map canvas (tiles + drawn layers) when a popup is active.
+   Inside MapLibre's DOM, .maplibregl-canvas-container is a SIBLING of .maplibregl-popup,
+   so this filter dims the map without affecting the popup at all. */
+.map-focus-active .maplibregl-canvas-container {
+  filter: brightness(0.3);
+  transition: filter 0.3s ease;
+}
+
+/* Keep popups fully bright and interactive above the dimmed canvas */
+.map-focus-active .maplibregl-popup {
+  z-index: 10 !important;
+}
