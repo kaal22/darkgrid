@@ -2,7 +2,7 @@
 
 OSINT threat‑intel dashboard: a 3D globe and live feed showing malicious infrastructure from public sources like AbuseIPDB and OpenPhish.
 
-<video src="assets/demo/darkgrid-demo.mp4" controls width="800">
+<video src="https://github.com/kaal22/darkgrid/raw/main/assets/demo/darkgrid-demo.mp4" controls width="800">
   Your browser does not support the video tag.
 </video>
 
